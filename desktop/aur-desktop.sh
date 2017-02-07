@@ -36,7 +36,7 @@ cd ..
 
 ############# Install AUR Packages
 yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop minecraft
-# Look I added minecraft....
+# Look I added minecraft...
 # Kodi-rpb needs to be configured heavily. Should be run as standalone program. 
 # Kodi does not work well with screen resolution yet, and fucks up upon exiting. 
 

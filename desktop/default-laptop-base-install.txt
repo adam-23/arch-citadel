@@ -1,7 +1,7 @@
 # Hardware components for laptop installation
 # Partitioning Instructions
 
-Acquire the following:
+Acquire the following :
 
 -------
 * Laptop

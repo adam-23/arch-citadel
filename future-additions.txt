@@ -1,0 +1,24 @@
+Install emulationstation-git AUR
+-enable right click
+install kodi as standalone program in ROMA
+learn to write/delete code to files instead of just appending. 
+
+add transparent terminals in XFCE and GNOME
+later install genfstab shit for desk
+
+
+Hellas- minimal use desktop pi
+	done mostly?
+	tboplayer-git for OMX	
+
+Roma- Stationary entertainment pi
+	needs slight reworking
+
+Sumer- Full Desk install. All features. Steam. 
+	massive formatting update needed
+	
+Deghoma- Server and networking pi
+	not started. 
+	
+
+

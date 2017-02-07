@@ -1,0 +1,170 @@
+(Hardware)
+
+Acquire the following:
+
+* Raspberry Pi3
+* USB Keyboard (wireless is preferable)
+* Samsung Micro SD card (32 or 64 GB preferable), with adapter
+* 2.1Amp power supply, USB charging cable
+* HDMI Monitor
+* Ethernet Cable
+* Spare Linux computer with MicroSD slot (Ubuntu is easy installation, decently user-friendly), network capabilities
+* Wifi router on hand, or dnsmasq package on Linux computer (see below)
+
+(Partitions and Installation)
+
+1. Insert MicroSD card into adapter, insert adapter into slot. 
+Have all the other supplies onhand nearby. 
+
+2. Now we have to create the partitions on the SD card for installation.
+And then once the partitions have been created, they need to be formatted
+correctly for the coming Arch install.
+
+(In the following steps, replace 'sdX' with whatever the SD card appears in your drive as.
+  In my case, sdX in my laptop shows up as 'mmcblk0'.)
+
+In the terminal of your spare computer, type the following:
+    sudo fdisk /dev/sdX
+    o (clears partitions)
+    p (list partitions, hopefully there's nothing there)
+    n
+    p
+    1 (create first partition)
+    ENTER (default start)
+    +100M (ends at 100M in)
+    t
+    c
+    n
+    p
+    2
+    ENTER
+    ENTER
+    w
+  
+  This creates the boot partition, and formats the rest of your disk for an Arch install.
+  
+  (For the next step, you need the package dosfstools to run mkfs. Please install.)
+  
+   sudo mkfs.vfat /dev/sdX1
+   mkdir boot
+   sudo mount /dev/sdX1 boot
+  
+(Yay, boot partition)
+  
+   sudo mkfs.ext4 /dev/sdX2
+   mkdir root
+   sudo mount /dev/sdX2 root
+  
+(On larger SD cards, the above step may take some time.)
+(Yay, root partition!)
+  
+(On secondary computer, make sure to install wget package)
+  
+    wget http://archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+    sudo bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C root
+    sync
+     (This step is gonna take some time too.)
+  
+(Downloaded the files for Arch)  
+
+   sudo mv root/boot/* boot
+
+(Move all boot partition files to boot partition)
+
+   sudo umount boot root
+
+
+
+Now you have a working fresh Arch installed card. Remove from host computer.
+Insert that into the Pi. Connect Pi to screen, power, keyboard, and ethernet.
+At boot prompt, type in :
+
+   root (Login Name)
+   root (Password Name)
+
+Connect the Pi to ethernet (via router or hotspot)
+   pacman -Syu
+   (updates packages, you CANNOT install software if you're not up to date)
+   (This command is analogous to sudo apt-get update AND sudo apt-get upgrade)
+  
+(Wifi connectivity)
+
+   wifi-menu <wifi-interface>
+   (In my case, it's wlan1 for using an external adapter, wlan0 for the default chip)
+
+EASY TEST if wifi is working: 
+    ping google.com
+(If you see some sort of error, then you're not connected to wifi. Any bytes transferred, bueno.)
+  
+(GUI and Programs setup)
+
+(GUI Install and enable, sound control, system tools, XFCE4 tweaks, and useful apps)
+    pacman -S xorg xorg-xinit xorg-server
+    pacman -S xfce4 chromium tk python3 paprefs pavucontrol
+    pacman -S git base-devel gamin gvfs dnsmasq wget
+    pacman -S bash-completion networkmanager network-manager-applet gnome-keyring
+    pacman -S alsa-utils alsa-tools alsa-firmware pulseaudio
+    pacman -S rhythmbox omxplayer transmission-cli transmission-gtk
+    pacman -S networkmanager-openvpn
+      (Optional, use if you have a VPN)
+    
+    pacman -S mesa xf86-video-fbdev xf86-video-vesa
+      (The bottom row is video drivers for the Pi screen, in this case
+       installed by default, which I'm including just to be sure)
+       
+    (Add this line if you want sound to work on your Pi)
+    nano /boot/config.txt
+      dtparam=audio=on
+      audio_pwm_mode=2
+      CTRL+O
+      CTRL+X
+
+
+
+
+
+
+(Main User Setup)
+    
+    useradd -m -G wheel -s /bin/bash <new user>
+    EDITOR=nano visudo
+    
+    Uncomment #%wheel ALL=(ALL) ALL
+    CTRL+O
+    Enter
+    CTRL+X
+    
+    passwd root
+    passwd <new user>
+    userdel alarm
+    
+
+    
+Now, log into your new username.
+
+(Enable XFCE to start at boot)
+    nano ~/.xinitrc 
+     exec startxfce4
+     CTRL + O
+     CTRL + X
+    nano ~/.bash_profile
+     exec starx
+     CTRL + O
+     CTRL + X
+     
+(For the Network GUI to automatically remember your wifi passwords)
+    sudo systemctl enable NetworkManager.service
+    sudo systemctl enable wpa_supplicant.service
+    sudo gpasswd -a <username> network
+     
+    shutdown -r now 
+  
+Enter your login credentials.   
+(HOPEFULLY there's now a desktop that has XFCE4 and a cute lil mouse on it when you restart. If not, ur fked.)
+Enter your wifi password, and you should be good to go :)
+
+
+
+
+
+(AUR helper setup is not required, because it's already included in the raspi edition. Praise.)

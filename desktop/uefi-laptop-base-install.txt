@@ -1,0 +1,60 @@
+# Hardware components for laptop installation
+# Partitioning Instructions
+
+Acquire the following:
+
+-------
+* UEFI Laptop
+* Arch Installation File, x86_64 bit
+* 8GB or greater USB
+* Ethernet Cable and internet connection
+* Spare Linux computer with USB slot, network capabilities
+  (Ubuntu is easy installation, decently user-friendly)
+--------
+
+# Flash Arch image to USB
+# Configure BIOS (F2 at startup in my case) to boot from USB
+# Plug in Arch Live USB, boot from USB on startup. 
+
+# In Shell, type the following (replace the sdX with whatever drive it is, probably gonna be sda):
+parted /dev/sdX 
+    mklabel msdos
+    yes
+    mkpart part-type fs-type start end
+    mkpart primary ext4 1MiB 109 GiB
+    set 1 boot on
+    mkpart primary linux-swap 109GiB 100%
+    # Creates and sizes partitions
+lsblk
+# Lists partitions
+    
+mkfs.ext4 /dev/sdxY
+# probably sda2
+# Formats to ext4
+     
+mkswap /dev/sdxY
+# probably sda2
+swapon /dev/sdxY
+# sda2
+# Makes the swap partition
+
+mount /dev/sda1 /mnt
+# Mounts partition to root folder
+    
+mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+# Makes the boot partition
+
+# Generate a partitioning filescheme: 
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Connect the laptop to the internet using an ethernet cable.
+# Install the base packages:
+pacstrap -i /mnt base base-devel grub os-prober dialog wpa_supplicant
+
+
+# Allow the system to boot to Arch instead of requiring the USB:
+arch-chroot /mnt /bin/bash
+
+shutdown -h now
+# Shutdown the computer, remove the USB, and install the system packages. The base install is done. 

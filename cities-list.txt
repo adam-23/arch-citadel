@@ -1,0 +1,48 @@
+Hellas
+	Konosos
+	Mykene
+	Korinth
+	Sparta
+	Thebes
+	Argos
+	Athens
+	Delphi
+	Rhodes
+	Pylos
+	
+
+Deghoma
+	Trees		DRUTI
+	Wind		WENTS
+	Coast		KOST
+	Axe			EKS
+	Dagger		SEKSOR
+	Net			NEDJ
+	Light		LUS
+	Write		SCRAF
+	Sun			SUNU
+	Justice		IUSTUS
+
+Roma
+	Byzantinia
+	Venizia
+	Londinium
+	Valentia
+	Lutetia
+	Abila
+	Massa
+	Remulus
+	Palatinus
+	Capitolinus
+
+Sumer
+	Ur
+	Uruk
+	Lagash
+	Eridu
+	Shuruppak
+	Sippar
+	Eshnunna
+	Isin
+	Larsa
+	Bad-Tibira

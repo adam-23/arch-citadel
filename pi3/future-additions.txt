@@ -1,0 +1,24 @@
+Install emulationstation-git AUR
+
+-enable right click
+
+learn to write/delete code to files instead of just appending. 
+
+add wine install script in DESKTOP
+
+add transparent terminals in XFCE and GNOME
+
+later install genfstab shit for desktop.
+
+add in raspberry pi camera functionality to pi side. 
+
+add xorg.conf file for configuring touchscreen and KODI resolution. 
+
+3 scripts:
+	one for initial install and user setup
+
+	one for AUR setup
+
+	one for secondary user setup just in case. 
+
+

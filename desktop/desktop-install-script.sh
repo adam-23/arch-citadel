@@ -124,7 +124,7 @@ echo 'Configured auto-boot to GNOME Desktop.'
 echo
 echo 'exec gnome-session' >> /home/${NEWUSER}/.xinitrc
 echo '# Above comment appended by Uruk install script.' >> /home/${NEWUSER}/.xinitrc
-echo 'exec startx' >> /home/$NEWUSER/.bash_profile
+echo 'exec startx' >> /home/${NEWUSER}/.bash_profile
 echo '# Above comment appended by Uruk install script.' >> /home/${NEWUSER}/.bash_profile
 # Enables GNOME and X to start at boot. 
 
@@ -171,7 +171,7 @@ echo
 echo 'Configuring network tools.'
 systemctl enable NetworkManager.service
 systemctl enable wpa_supplicant.service
-gpasswd -a $NEWUSER network
+gpasswd -a ${NEWUSER} network
 # Configures network tools. 
 
 

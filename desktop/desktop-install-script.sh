@@ -26,7 +26,7 @@ echo "Username to add: $NEWUSER"
 echo
 echo 'Configuring sudo priviliges.'
 # Main User Setup:
-useradd -m -G wheel -s /bin/bash $NEWUSER
+useradd -m -G wheel -s /bin/bash ${NEWUSER}
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 echo '# Above line appended by Uruk install script.' >> /etc/sudoers
 # Allows user to use sudo command.
@@ -40,8 +40,8 @@ echo
 echo 'Enter the new password for root.'
 passwd root
 echo
-echo "Enter the new password for $NEWUSER."
-passwd $NEWUSER
+echo "Enter the new password for ${NEWUSER}."
+passwd ${NEWUSER}
 echo
 echo 'Passwords configured.'
 echo 'User assigned.'
@@ -55,7 +55,7 @@ echo
 echo -n "Enter your new desired computer hostname (default: sumer) > "
 read NEWHOSTNAME
 echo "Hostname to add: $NEWHOSTNAME"
-hostnamectl set-hostname $NEWHOSTNAME
+hostnamectl set-hostname ${NEWHOSTNAME}
 echo
 # Ask user for the name of the computer as seen on networks. 
 # Default is Sumer
@@ -70,7 +70,7 @@ echo -n "Enter Zone (Continent) (default: America) > "
 read NEWZONE
 echo -n "Enter Subzone (City) (default: Denver) > "
 read NEWSUBZONE
-timedatectl set-timezone $NEWZONE/$NEWSUBZONE
+timedatectl set-timezone ${NEWZONE}/${NEWSUBZONE}
 echo "$NEWZONE/$NEWSUBZONE timezone added."
 echo
 # Ask user for timezones. Default is America/Denver.
@@ -96,7 +96,8 @@ echo
 echo '-----------------------------------------'
 echo 'Installing "GNOME" desktop environment.'
 echo
-pacman -S gnome gnome-keyring gnome-software gdm tlp
+pacman -S gnome gnome-keyring gnome-software tlp
+#pacman -S gdm
 # Gnome standard packages and TLP battery saver.
 
 
@@ -107,10 +108,10 @@ pacman -S gnome gnome-keyring gnome-software gdm tlp
 echo 
 echo 'Configuring "GNOME" system environment.' 
 echo
-systemctl enable gdm.service
 gsettings set org.gnome.desktop.background show-desktop-icons true
 echo 'WaylandEnable=false' >> /etc/gdm/custom.conf
-echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
+# systemctl enable gdm.service
+# echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
 # This allows use of Xorg to draw desktop icons using nautilus. 
 # Allows Gnome to show desk icons, enables GDM Lock Screen.
 
@@ -121,10 +122,10 @@ echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
 echo
 echo 'Configured auto-boot to GNOME Desktop.'
 echo
-echo 'exec gnome-session' >> /home/$NEWUSER/.xinitrc
-echo '# Above comment appended by Uruk install script.' >> /home/$NEWUSER/.xinitrc
+echo 'exec gnome-session' >> /home/${NEWUSER}/.xinitrc
+echo '# Above comment appended by Uruk install script.' >> /home/${NEWUSER}/.xinitrc
 echo 'exec startx' >> /home/$NEWUSER/.bash_profile
-echo '# Above comment appended by Uruk install script.' >> /home/$NEWUSER/.bash_profile
+echo '# Above comment appended by Uruk install script.' >> /home/${NEWUSER}/.bash_profile
 # Enables GNOME and X to start at boot. 
 
 

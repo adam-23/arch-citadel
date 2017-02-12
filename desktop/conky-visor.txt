@@ -77,7 +77,7 @@ ${color1}System Storage:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 $hr
 ${color1}Networking: $color[${wireless_essid wlp2s0}]    
-${color1} IP: $color${addr wlp2s0}
+#${color1} IP: $color${addr wlp2s0}
 
  ${color1}Up:$color ${upspeed wlp2s0}
  ${color1}Down:$color ${downspeed wlp2s0}

@@ -107,7 +107,8 @@ pacman -S gnome gnome-keyring gnome-software tlp xfce4-terminal gdm
 echo 
 echo 'Configuring "GNOME" system environment.' 
 echo
-gsettings set org.gnome.desktop.background show-desktop-icons true
+# gsettings set org.gnome.desktop.background show-desktop-icons true
+# As of posting my theme on unixporn I've decided to forgo this because the default icons look ugly
 echo 'WaylandEnable=false' >> /etc/gdm/custom.conf
 echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
 systemctl enable gdm.service

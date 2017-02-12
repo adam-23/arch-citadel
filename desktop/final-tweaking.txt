@@ -18,6 +18,9 @@
 	Sign into Chromium, restore bookmarks
 	Link google drive to nautilus:
   		(Gnome Online Accounts)
+  	SYstem theme set to adwaita dark
+  	XFCE4 terminal can have transparency
+
 
 # To create Ethernet hotspot:
 Create a new wifi network in the desired name, set to WEP and allow sharing as hotspot. 

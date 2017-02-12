@@ -113,6 +113,9 @@ echo 'WaylandEnable=false' >> /etc/gdm/custom.conf
 echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
 systemctl enable gdm.service
 
+
+
+
 # This allows use of Xorg to draw desktop icons using nautilus. 
 # Allows Gnome to show desk icons, enables GDM Lock Screen.
 
@@ -151,7 +154,13 @@ echo
 echo '-----------------------------------------'
 echo 'Installing programming tools.'
 echo
-pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 pluma gparted eric dosfstools
+pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 pluma gparted eric dosfstools conky
+
+
+touch /home/${NEWUSER}/.xprofile
+cp conky-visor.txt /home/${NEWUSER}/.config/conky/conky.conf
+echo 'conky' >> /home/${NEWUSER}/.xprofile
+# copies all relevant things into conky.conf, autostarts at system login
 # Installs basic programming tools to your liking.
 
 

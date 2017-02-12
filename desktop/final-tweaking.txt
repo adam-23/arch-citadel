@@ -27,3 +27,5 @@ Create a new Ethernet network connection, find the option for share with other c
 Other computers must connect using the name and WEP password. Linux Only. 
 
 # For terminal opening like Ubuntu, create custom keyboard command that does CTRL+Alt+T, running command gnome-terminal.
+
+# Turn natural scrolling off in mouse settings

@@ -110,8 +110,9 @@ echo 'Configuring "GNOME" system environment.'
 echo
 gsettings set org.gnome.desktop.background show-desktop-icons true
 echo 'WaylandEnable=false' >> /etc/gdm/custom.conf
-# systemctl enable gdm.service
-# echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
+echo '# Above line appended by Sumer install script.' >> /etc/gdm/custom.conf
+systemctl enable gdm.service
+
 # This allows use of Xorg to draw desktop icons using nautilus. 
 # Allows Gnome to show desk icons, enables GDM Lock Screen.
 

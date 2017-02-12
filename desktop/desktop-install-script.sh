@@ -96,8 +96,7 @@ echo
 echo '-----------------------------------------'
 echo 'Installing "GNOME" desktop environment.'
 echo
-pacman -S gnome gnome-keyring gnome-software tlp
-#pacman -S gdm
+pacman -S gnome gnome-keyring gnome-software tlp xfce4-terminal gdm
 # Gnome standard packages and TLP battery saver.
 
 

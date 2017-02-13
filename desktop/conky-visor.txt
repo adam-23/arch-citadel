@@ -68,20 +68,19 @@ conky.config = {
 conky.text = [[
 
 ${color1}System:$color $nodename 
-# Show system name, architecture
 $color  [$kernel $machine]
 $hr
-#
-#
+# Show system name, architecture
 #
 ${color1}Power:$color [$battery_percent%] ${battery_bar 6}
        $battery_time
 # Show battery percent, time
 #
-#
 $hr
 ${color1}System Storage:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+# Shows used Root Storage capacity
+#
 $hr
 ${color1}Networking: $color[${wireless_essid wlp2s0}]    
  ${color1}IP: $color${addr wlp2s0}
@@ -91,9 +90,10 @@ ${color1}Networking: $color[${wireless_essid wlp2s0}]
  ${if_up tun0}
  ${color1}VPN Status: ${color}Up
  ${color1}VPN IP:$color ${addr tun0}
- ${else}#
+${else}#
  ${endif}#
-# 
+# Shows IP, connection, VPN status
+#
 $hr
 ${color1}Memory:
  ${color1}RAM:$color [$memperc%] ${membar 4}             
@@ -101,9 +101,9 @@ ${color1}Memory:
  ${color1}CPU:$color [$cpu%] ${cpubar 4}
  ${color1}Processes:$color $processes  
  ${color1}Running:$color $running_processes
+# Shows various memory stats, processes
 
- ${color1}Name               CPU%  
-# COMMENT ME
+ ${color1}Name:              CPU%  
  $color ${top name 1} ${top cpu 1}
  $color ${top name 2} ${top cpu 2}
  $color ${top name 3} ${top cpu 3}
@@ -112,6 +112,6 @@ ${color1}Memory:
  $color ${top name 6} ${top cpu 6}
  $color ${top name 7} ${top cpu 7}
  $color ${top name 8} ${top cpu 8}
-
+# Shows top CPU processes
 
 ]]

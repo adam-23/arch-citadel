@@ -253,6 +253,7 @@ systemctl enable bluetooth.service
 
 
 
+########## Final Comment
 echo
 echo "-----------------------------------------"
 echo "Auto-installed system tools."

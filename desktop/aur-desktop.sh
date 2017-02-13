@@ -16,7 +16,7 @@ sudo pacman -Syu
 echo
 # Updates/upgrades system.
 
-# ARCHHCHCHC
+
 
 ################### Install AUR Helper
 echo 'Installing AUR Helper: Yaourt.' 
@@ -32,8 +32,6 @@ cd ..
 
 
 
-
-
 ############# Install AUR Packages
 yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop minecraft
 # Look I added minecraft...
@@ -41,4 +39,3 @@ yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop min
 # Kodi does not work well with screen resolution yet, and fucks up upon exiting. 
 
 echo 'AUR Packages installed.'
-

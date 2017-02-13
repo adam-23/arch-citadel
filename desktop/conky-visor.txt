@@ -78,13 +78,14 @@ ${color1}Power:$color [$battery_percent%] $battery_time
 #
 $hr
 ${color1}System Storage:
- / $color${fs_used /}/${fs_size /}
+ / ${color1} Used: $color[${fs_used /}]
+ / ${color1} Left: $color[${fs_size /}]
  ${fs_bar 6 /}
 # Shows used Root Storage capacity
 #
 $hr
 ${color1}Networking: $color[${wireless_essid wlp2s0}]    
- ${color1}IP: $color${addr wlp2s0}
+ #${color1}IP: $color${addr wlp2s0}
 
  ${color1}Up:$color ${upspeed wlp2s0}
  ${color1}Down:$color ${downspeed wlp2s0}

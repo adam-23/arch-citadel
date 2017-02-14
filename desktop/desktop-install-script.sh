@@ -245,7 +245,8 @@ echo
 echo "-----------------------------------------"
 echo "Installing entertainment and bluetooth packages."
 echo
-pacman -S kodi
+pacman -S kodi youtube-dl
+#
 pacman -S bluez bluez-utils pulseaudio-bluetooth
 systemctl enable bluetooth.service
 # Installs entertainment tools.

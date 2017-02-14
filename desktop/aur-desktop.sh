@@ -33,9 +33,17 @@ cd ..
 
 
 ############# Install AUR Packages
-yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop minecraft
-# Look I added minecraft...
-# Kodi-rpb needs to be configured heavily. Should be run as standalone program. 
-# Kodi does not work well with screen resolution yet, and fucks up upon exiting. 
+echo "Installing PDF editor, popcorntime, spotify, flash, slack, and Minecraft."
+yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop minecraft cava
+# PDF editor, popcorntime, spotify, Flash, slack, minecraft, cava (audio visualizer)
+echo "Be sure to tweak cava in .config/cava/config to your liking."
+echo
+echo "Installing system themes Dark Arc GTK Theme and La Capitaine icons."
+yaourt -S arc-gtk-theme la-capitaine-icon-theme-git
+echo
+echo "Be sure to set the new GTK and Icon themes using the Gnome Tweak tool."
+# System themes for GTK/Icons,
+
+
 
 echo 'AUR Packages installed.'

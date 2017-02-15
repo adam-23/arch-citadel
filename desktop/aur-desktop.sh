@@ -46,4 +46,19 @@ echo "Be sure to set the new GTK and Icon themes using the Gnome Tweak tool."
 
 
 
+######## Steam Under Wine, 64bit
+echo
+echo "Installing Wine, Steam"
+echo
+sudo pacman -S wine lib32-alsa-lib lib32-alsa-plugins
+echo
+echo "Installing Steam system fonts."
+echo
+yaourt -S ttf-tahoma ttf-ms-fonts
+echo "Now you must download the Steam Installer. Opening Chrome..."
+sleep 5s
+chromium http://store.steampowered.com/about/
+
+
+
 echo 'AUR Packages installed.'

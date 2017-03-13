@@ -202,7 +202,7 @@ echo "Installing programming tools."
 echo
 pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 pluma gparted dosfstools conky
 touch /home/${NEWUSER}/.xprofile
-cp conky-visor.txt /home/${NEWUSER}/.config/conky/conky.conf
+cp /../config_files/conky-visor.txt /home/${NEWUSER}/.config/conky/conky.conf
 echo "conky" >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login
 # Installs basic programming tools.

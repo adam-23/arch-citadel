@@ -50,7 +50,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 # Connect the laptop to the internet using an ethernet cable.
 # Install the base packages:
-pacstrap -i /mnt base base-devel
+pacstrap -i /mnt base base-devel grub os-prober dialog wpa_supplicant
 
 
 # Allow the system to boot to Arch instead of requiring the USB:

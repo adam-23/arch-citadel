@@ -1,26 +1,29 @@
 Overview
 
--Hellas : Lightweight Desktop Pi
-	owned
-	attach camera
-	configure onscreen keyboard
-	configure right click
-	master OMX
-	master emulationstation
+-Hellas (Greece): Lightweight Desktop Pi
+	owned /
+	attach camera x
+	configure onscreen keyboard /
+	configure right click x
+	master OMX x
+	master retroarch x
+	add wacom tablet eventually x
 
--Roma : Entertainment station Pi
-	pi3 
-	case
-	sd card 
-	power supply 
-	long HDMI cable
-	2 controllers
-	2 blue dongles
-	network capabilities
-	keyboard and dongle
-	attach to tv
+-Roma (Rome): Entertainment station Pi
+	pi3 /
+	case /
+	sd card /
+	power supply /
+	long HDMI cable /
+	2 controllers x
+	2 bluetooth dongles x
+	network capabilities /
+	keyboard and dongle /
+	attach to tv /
+	kodi and retroarch?
+	external drive /
 
--Deghoma : Server and Networking Pi
+-Deghoma (Earth): Server and Networking Pi
 	1tb hard drive 
 	pi3
 	sd card
@@ -31,6 +34,6 @@ Overview
 -Sumer : Full featured desktop
 	done
 
--Syr : Coding focused desktop
+-Syr (Tyre): Coding focused desktop
 	done
 	second monitor

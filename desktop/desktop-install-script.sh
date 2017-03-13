@@ -200,7 +200,7 @@ echo
 echo "-----------------------------------------"
 echo "Installing programming tools."
 echo
-pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 pluma gparted eric dosfstools conky
+pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 pluma gparted dosfstools conky
 touch /home/${NEWUSER}/.xprofile
 cp conky-visor.txt /home/${NEWUSER}/.config/conky/conky.conf
 echo "conky" >> /home/${NEWUSER}/.xprofile
@@ -216,7 +216,7 @@ echo "Installing network tools."
 echo
 pacman -S iw wpa_supplicant dialog
 pacman -S networkmanager network-manager-applet dnsmasq networkmanager-openvpn openvpn
-pacman -S transmission-cli transmission-gtk chromium gparted
+pacman -S transmission-cli transmission-gtk chromium
 # Installs network tools.
 
 

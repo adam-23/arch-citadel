@@ -20,7 +20,7 @@ Acquire the following:
 parted /dev/sdX 
     mklabel msdos
     yes
-    mkpart part-type fs-type start end
+    [mkpart part-type fs-type start end]
     mkpart primary ext4 1MiB 109 GiB
     set 1 boot on
     mkpart primary linux-swap 109GiB 100%
@@ -50,7 +50,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 # Connect the laptop to the internet using an ethernet cable.
 # Install the base packages:
-pacstrap -i /mnt base base-devel grub os-prober dialog wpa_supplicant
+pacstrap -i /mnt base base-devel grub os-prober dialog wpa_supplicant git
 
 
 # Allow the system to boot to Arch instead of requiring the USB:

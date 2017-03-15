@@ -57,7 +57,7 @@ echo
 yaourt -S ttf-tahoma ttf-ms-fonts
 echo "Now you must download the Steam Installer. Opening Chrome..."
 sleep 5s
-chromium http://store.steampowered.com/about/
+exec chromium http://store.steampowered.com/about/
 
 
 

@@ -1,31 +1,32 @@
 # System Config and Tweaking
 	    
 # Change system fonts to Monospace 12
-# Be sure to disable Wayland, and default to X instead! 
+
+# Be sure to disable Wayland, and default to X instead!
 
 # Change default alert sound from Drip/Default to Glass in gnome.
 
 # Misc things: 
-	Install Yaourt (AUR helper)
+	in RetroArch, update Assets
 	Install C-Lion
 	Install Pycharm
 	Install IntelliJ Idea
 	Install vpn.ht configure settings
 	List student code for above IDEs
-	Change Bash Profile settings (black and blue, clear background possibly from AUR)
+	Change Bash Profile settings (to black and white text, transparent (XFCE))
 	Sign into Chromium, restore bookmarks
-	Link google drive to nautilus:
-  		(Gnome Online Accounts)
-  	SYstem theme set to adwaita dark
-  	XFCE4 terminal can have transparency
+  	System theme set to Arc Darker
+  	Icon theme to La Capitaine
 
 
 # To create Ethernet hotspot:
-Create a new wifi network in the desired name, set to WEP and allow sharing as hotspot. 
+    Create a new wifi network in the desired name, set to WEP and allow sharing as hotspot.
+
 
 # To share ethernet, it requires a client system and another USB wifi chip on the host system
-Create a new Ethernet network connection, find the option for share with other computers in the 'Method' tab.
-Other computers must connect using the name and WEP password. Linux Only. 
+    Create a new Ethernet network connection, find the option for share with other computers in the 'Method' tab.
+    Other computers must connect using the name and WEP password. Linux Only.
+
 
 # For terminal opening like Ubuntu, create custom keyboard command that does CTRL+Alt+T, running command gnome-terminal.
 

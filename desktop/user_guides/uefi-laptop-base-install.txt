@@ -56,5 +56,14 @@ pacstrap -i /mnt base base-devel grub os-prober dialog wpa_supplicant git
 # Allow the system to boot to Arch instead of requiring the USB:
 arch-chroot /mnt /bin/bash
 
-shutdown -h now
-# Shutdown the computer, remove the USB, and install the system packages. The base install is done. 
+# Download and access the files. 
+cd root
+git clone https://github.com/adam-23/arch-citadel
+cd arch-citadel
+chmod +x *
+cd desktop
+cd shell_scripts
+./desktop-install-script.sh
+
+#####shutdown -h now
+##### Shutdown the computer, remove the USB, and install the system packages. The base install is done. 

@@ -205,6 +205,8 @@ touch /home/${NEWUSER}/.xprofile
 cp /../config_files/conky-visor.txt /home/${NEWUSER}/.config/conky/conky.conf
 echo "conky" >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login
+git config --global core.editor nano
+# Makes git's default editor as nano, not emacs.
 apm install minimap terminal-fusion
 # Installs mini window into atom, and terminal functionality
 # Installs basic programming tools.

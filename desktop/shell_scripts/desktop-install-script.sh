@@ -207,8 +207,14 @@ echo "conky" >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login
 git config --global core.editor nano
 # Makes git's default editor as nano, not emacs.
-apm install minimap terminal-fusion git-diff
-# Installs mini window into atom, and terminal functionality
+apm install minimap git-diff highlight-line symbols-tree-view script
+# minimap, git differentiation, highlights the current line you're on, show symbols in tree view, run scripts.
+linter linter-ui-default  busy-signals intentions  
+# General base for installing syntax highlighters
+apm install linter-pylama magicpython
+# python syntax-highlighting
+
+
 # Installs basic programming tools.
 
 

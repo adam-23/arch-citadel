@@ -209,8 +209,8 @@ git config --global core.editor nano
 # Makes git's default editor as nano, not emacs.
 apm install minimap git-diff highlight-line symbols-tree-view script
 # minimap, git differentiation, highlights the current line you're on, show symbols in tree view, run scripts.
-linter linter-ui-default  busy-signals intentions  
-# General base for installing syntax highlighters
+linter linter-ui-default  busy-signals intentions tablr
+# General base for installing syntax highlighters, tablr for CSV/TSV
 apm install linter-pylama magicpython
 # python syntax-highlighting
 

@@ -37,7 +37,7 @@ if [ ${NAMEGATE} == "yes" ]
 fi
 echo "Username to add: $NEWUSER"
 # Asks user for a new user name, and stores the input as a variable.
-# This $NEWUSER variable will be used for the rest of the script. 
+# This $NEWUSER variable will be used for the rest of the script.
 
 
 
@@ -100,7 +100,7 @@ read NEWHOSTNAME
 echo "Hostname to add: $NEWHOSTNAME"
 hostnamectl set-hostname ${NEWHOSTNAME}
 echo
-# Ask user for the name of the computer as seen on networks. 
+# Ask user for the name of the computer as seen on networks.
 # Default is ellas
 
 
@@ -153,7 +153,7 @@ pacman -S gnome gnome-keyring gnome-software tlp xfce4-terminal gdm
 
 
 ######## Configuring GNOME
-echo 
+echo
 echo "Configuring "GNOME" system environment."
 echo
 # gsettings set org.gnome.desktop.background show-desktop-icons true
@@ -179,7 +179,7 @@ echo "# Above comment appended by Athens install script." >> /home/${NEWUSER}/.x
 echo "exec startx" >> /home/${NEWUSER}/.bash_profile
 echo "# Above comment appended by Athens install script." >> /home/${NEWUSER}/.bash_profile
 # Might technically be defunct because gdm is being used. Will have to test later.
-# Enables GNOME and X to start at boot. 
+# Enables GNOME and X to start at boot.
 
 
 
@@ -191,11 +191,11 @@ echo
 systemctl enable tlp.service
 systemctl enable tlp-sleep.service
 systemctl disable systemd-rfkill.service
-# Enables and configures TLP battery saver. 
+# Enables and configures TLP battery saver.
 
 
 
-######### Programming Tools 
+######### Programming Tools
 echo
 echo "-----------------------------------------"
 echo "Installing programming tools."
@@ -207,7 +207,7 @@ echo "conky" >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login
 git config --global core.editor nano
 # Makes git's default editor as nano, not emacs.
-apm install minimap terminal-fusion
+apm install minimap terminal-fusion git-diff
 # Installs mini window into atom, and terminal functionality
 # Installs basic programming tools.
 
@@ -231,7 +231,7 @@ echo "Configuring network tools."
 systemctl enable NetworkManager.service
 systemctl enable wpa_supplicant.service
 gpasswd -a ${NEWUSER} network
-# Configures network tools. 
+# Configures network tools.
 
 
 

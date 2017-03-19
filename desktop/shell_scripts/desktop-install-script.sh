@@ -218,7 +218,7 @@ apm install linter linter-ui-default  busy-signals intentions tablr atom-save-al
 # General base for installing syntax highlighters, tablr for CSV/TSV, save all windows at once.
 apm install linter-pylama magicpython
 # python syntax-highlighting
-apm install open-in-browser open-in-browsers
+apm install open-in-browser open-in-browsers linter-tidy
 exit
 # Installs desired Atom packages.
 

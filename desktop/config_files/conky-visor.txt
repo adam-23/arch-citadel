@@ -30,7 +30,7 @@ conky.config = {
     background = true,
     border_width = 1,
     cpu_avg_samples = 2,
-    default_color = '701112',
+    default_color = '701112', # 701112 for bloodred, '072207' For Tyranitar
     default_outline_color = 'white',
     default_shade_color = 'white',
     color1 = 'black',
@@ -67,7 +67,7 @@ conky.config = {
 
 conky.text = [[
 
-${color1}System:$color $nodename 
+${color1}System:$color $nodename
 $color  [$kernel $machine]
 $hr
 # Show system name, architecture
@@ -84,7 +84,7 @@ ${color1}System Storage:
 # Shows used Root Storage capacity
 #
 $hr
-${color1}Networking: $color[${wireless_essid wlp2s0}]    
+${color1}Networking: $color[${wireless_essid wlp2s0}]
  #${color1}IP: $color${addr wlp2s0}
 
  ${color1}Up:$color ${upspeed wlp2s0}
@@ -99,16 +99,16 @@ ${endif}#
 $hr
 ${color1}Memory:
  ${color1}RAM:$color [$memperc%]
- ${membar 4}             
+ ${membar 4}
  ${color1}Swap:$color [$swapperc%]
  ${swapbar 4}
  ${color1}CPU:$color [$cpu%]
  ${cpubar 4}
- ${color1}Processes:$color $processes  
+ ${color1}Processes:$color $processes
  ${color1}Running:$color $running_processes
 # Shows various memory stats, processes
 
- ${color1}Name:              CPU%  
+ ${color1}Name:              CPU%
  $color ${top name 1} ${top cpu 1}
  $color ${top name 2} ${top cpu 2}
  $color ${top name 3} ${top cpu 3}

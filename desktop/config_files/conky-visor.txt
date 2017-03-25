@@ -31,9 +31,10 @@ conky.config = {
     border_width = 1,
     cpu_avg_samples = 2,
     default_color = '701112', # 701112 for bloodred, '072207' For Tyranitar
+      # 'ee7600' for Ember
     default_outline_color = 'white',
     default_shade_color = 'white',
-    color1 = 'black',
+    color1 = 'black', # 'ee7600' for embers
     draw_borders = false,
     double_buffer = true,
     draw_graph_borders = true,

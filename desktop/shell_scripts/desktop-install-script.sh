@@ -202,6 +202,9 @@ echo
 pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 gparted dosfstools conky atom
 touch /home/${NEWUSER}/.xprofile
 cp /../config_files/conky-visor.txt /home/${NEWUSER}/.config/conky/convisor.conf
+cp /../config_files/conky-tasks.txt /home/${NEWUSER}/.config/conky/contasks.conf
+touch /home/${NEWUSER}/tasks.txt
+echo "Add tasks in ~/tasks.txt"
 echo "conky" >> /home/${NEWUSER}/.xprofile
 echo "# Above comment appended by Athens install script." >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login

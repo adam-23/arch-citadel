@@ -304,10 +304,10 @@ echo "conky -c ~/.config/conky/contasks.conf" >> /home/${NEWUSER}/.xprofile
 echo "conky -c ~/.config/conky/convisor.conf" >> /home/${NEWUSER}/.xprofile
 # Run system monitor at boot
 cp /../config_files/cava-config.txt /home/${NEWUSER}/.config/cava/config
+cp /../config_files/cavisual.sh /home/${NEWUSER}/.config
 # Copy cava config file from here to requisite folder
-cp /../config_files/tilda-config.txt /home/${NEWUSER}/.config/tilda/config_0
-echo "tilda" >> /home/${NEWUSER}/.xprofile
-echo "# Run tilda -C to configure options" >> /home/${NEWUSER}/.xprofile
+echo "./config/cavisual.sh" >> /home/${NEWUSER}/.xprofile
+echo "# Run the cavisual bash script, found in /config" >> /home/${NEWUSER}/.xprofile
 # Create tilda config file for visualizing audio with cava
 # Tilda will run at boot, and it will run cava
 echo "# Above comments appended by Athens install script." >> /home/${NEWUSER}/.xprofile

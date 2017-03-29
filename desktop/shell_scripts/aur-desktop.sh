@@ -19,7 +19,7 @@ echo
 
 
 ################### Install AUR Helper
-echo 'Installing AUR Helper: Yaourt.' 
+echo 'Installing AUR Helper: Yaourt.'
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si
@@ -39,7 +39,7 @@ yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop min
 echo "Be sure to tweak cava in .config/cava/config to your liking."
 echo
 echo "Installing system themes Dark Arc GTK Theme and La Capitaine icons."
-yaourt -S arc-gtk-theme la-capitaine-icon-theme-git
+yaourt -S arc-gtk-theme la-capitaine-icon-theme-git gnome-terminal-transparency
 echo
 echo "Be sure to set the new GTK and Icon themes using the Gnome Tweak tool."
 # System themes for GTK/Icons,

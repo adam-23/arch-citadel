@@ -210,6 +210,7 @@ echo
 pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 gparted dosfstools conky atom tilda
 git config --global core.editor nano
 # Makes git's default editor as nano, not emacs.
+pacman -S openssh tigervnc
 # Installs basic programming tools.
 
 

@@ -5,3 +5,4 @@ sleep 0.3
 wmctrl -r desktopconsole -b add,below,sticky
 wmctrl -r desktopconsole -b add,skip_taskbar,skip_pager
 # Was designed for a 1920 x 1080 16:9 ratio screen.
+# Refactor this for handy programs?

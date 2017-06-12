@@ -211,6 +211,7 @@ pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 gpar
 git config --global core.editor nano
 # Makes git's default editor as nano, not emacs.
 pacman -S openssh tigervnc
+# VNC and SSH programs.
 # Installs basic programming tools.
 
 
@@ -267,7 +268,7 @@ systemctl enable bluetooth.service
 
 ####### Install Atom packages in $NEWUSER home directory
 su $NEWUSER
-apm install minimap git-diff highlight-line symbols-tree-view script
+apm install minimap highlight-line symbols-tree-view script
 # minimap, git differentiation, highlights the current line you're on, show symbols in tree view, run scripts.
 apm install linter linter-ui-default  busy-signals intentions tablr atom-save-all
 # General base for installing syntax highlighters, tablr for CSV/TSV, save all windows at once.
@@ -294,7 +295,7 @@ exit
 ######### Configure .xprofile to run aesthetics programs at boot.
 touch /home/${NEWUSER}/.xprofile
 # Create .xprofile
-cp /../config_files/conky-visor.txt /home/${NEWUSER}/.config/conky/convisor.conf
+# cp /../config_files/conky-visor.txt /home/${NEWUSER}/.config/conky/convisor.conf
 cp /../config_files/conky-tasks.txt /home/${NEWUSER}/.config/conky/contasks.conf
 # Copy the contents of the conky shell scripts to config files.
 touch /home/${NEWUSER}/tasks.txt
@@ -307,13 +308,20 @@ echo "conky -c ~/.config/conky/convisor.conf" >> /home/${NEWUSER}/.xprofile
 cp /../config_files/cava-config.txt /home/${NEWUSER}/.config/cava/config
 cp /../config_files/cavisual.sh /home/${NEWUSER}/.config
 # Copy cava config file from here to requisite folder
-echo "./config/cavisual.sh" >> /home/${NEWUSER}/.xprofile
-echo "# Run the cavisual bash script, found in /config" >> /home/${NEWUSER}/.xprofile
+#echo "./config/cavisual.sh" >> /home/${NEWUSER}/.xprofile
+#echo "# Run the cavisual bash script, found in /config" >> /home/${NEWUSER}/.xprofile
 # Create tilda config file for visualizing audio with cava
 # Tilda will run at boot, and it will run cava
 echo "# Above comments appended by Athens install script." >> /home/${NEWUSER}/.xprofile
 # Copies all relevant things into conky.conf, conky autostarts at system login
 
+
+###### i3-ricing
+echo 'Ricing desktop...'
+echo
+echo 'Copying config files...'
+cp /../config_files/i3-config.txt /home/${NEWUSER}/.config/i3/config
+cp /../config_files/.xprofile /home/${NEWUSER}/.xprofile
 
 
 

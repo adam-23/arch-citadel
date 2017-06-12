@@ -36,10 +36,12 @@ cd ..
 echo "Installing PDF editor, popcorntime, spotify, flash, slack, and Minecraft."
 yaourt -S masterpdfeditor popcorntime-bin spotify pepper-flash slack-desktop minecraft cava
 # PDF editor, popcorntime, spotify, Flash, slack, minecraft, cava (audio visualizer)
+# Spotify may break
+# Shellshape extension is for tiling
 echo "Be sure to tweak cava in .config/cava/config to your liking."
 echo
-echo "Installing system themes Dark Arc GTK Theme and La Capitaine icons."
-yaourt -S arc-gtk-theme la-capitaine-icon-theme-git gnome-terminal-transparency
+echo "Installing Gnome additions."
+yaourt -S arc-gtk-theme la-capitaine-icon-theme-git gnome-terminal-transparency gnome-shell-extension-shellshape-git
 echo
 echo "Be sure to set the new GTK and Icon themes using the Gnome Tweak tool."
 # System themes for GTK/Icons,
@@ -56,9 +58,15 @@ echo "Installing Steam system fonts."
 echo
 yaourt -S ttf-tahoma ttf-ms-fonts
 echo "Now you must download the Steam Installer. Opening Chrome..."
-sleep 5s
-exec chromium http://store.steampowered.com/about/
+#sleep 5s
+#exec chromium http://store.steampowered.com/about/
 
-
+######## i3 and ricing
+echo 'Installing ricing packages'
+echo
+yaourt -S i3-gaps atom-editor-transparent i3-gnome
+sudo pacman -S compton
+echo
+echo
 
 echo 'AUR Packages installed.'

@@ -1,0 +1,9 @@
+# conky
+i3-gnome
+conky -c ~/.config/conky/contasks.conf
+gnome-session-quit
+#conky -c ~/.config/conky/convisor.conf  
+# exec i3
+# ./.config/cavisual.sh
+# ^ Go fuck yourself ya fuckin' box
+# Above comment appended by Athens install script.

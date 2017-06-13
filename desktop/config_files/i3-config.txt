@@ -6,6 +6,28 @@ exec --no-startup-id export SSH_AUTH_SOCK
 exec --no-startup-id feh --bg-scale ~/.config/i3/background.jpg
 exec --no-startup-id compton -b
 
+# Fibonacci Layout, open new windows alternatingly
+for_window [class=".*"] split toggle
+default_orientation vertical #start in opposite orientation from your monitor
+
+
+# Border colors
+#client.focused	#315858  #315858  #111111
+#client.focused #ffffff #000000 #ffffff #2e9ef4 #285577
+#client.focused_inactive #ffffff #5f676a #ffffff #484e50
+#5f676a
+#client.unfocused #ffcc00 #6791e2 #ef3451 #292d2e #e4191rr
+#client.background       #0003ee
+#client.placeholder      #ffffff #0c0c0c #ffffff #000000
+#0c0c0c
+#new_window pixel 1
+
+# colors
+#class 			border  backgr.    text
+client.focused 		#25242d #25242d #C5B358	#Focused Window
+client.focused_inactive	#2c2f2e #25242d #666666 #Nonfocused Window
+
+
 gaps inner 15
 gaps outer 5
 # Should you change your keyboard layout some time, delete
@@ -36,8 +58,12 @@ bindsym $mod+Return exec xfce4-terminal
 
 assign [class="chromium"] 2
 # open browser
-bindsym $mod+Shift+i exec --no-startup-id chromium
 
+bindsym $mod+Shift+i exec --no-startup-id chromium
+bindsym $mod+Shift+n exec --no-startup-id gnome-terminal
+bindsym $mod+Shift+a exec --no-startup-id atom
+bindsym Print exec uxterm
+bindsym XF86PowerOff exec uxterm
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 25
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 25
@@ -47,14 +73,14 @@ bindsym XF86KbdBrightnessUp exec --no-startup-id kbdbacklight -inc 25
 bindsym XF86KbdBrightnessDown exec --no-startup-id kbdbacklight -dec 25
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q split toggle kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -135,8 +161,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3 and X?' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec i3 exit
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3 and X?' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec i3 exit
+bindsym $mod+Shift+h exec --no-startup-id i3lock -i blacktriangles.png -u
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

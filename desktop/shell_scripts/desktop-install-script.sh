@@ -318,6 +318,7 @@ echo "# Above comments appended by Athens install script." >> /home/${NEWUSER}/.
 
 ###### i3-ricing
 echo 'Ricing desktop...'
+sudo pacman -S feh
 echo
 echo 'Copying config files...'
 cp /../config_files/i3-config.txt /home/${NEWUSER}/.config/i3/config

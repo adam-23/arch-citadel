@@ -1,12 +1,13 @@
 # System Config and Tweaking
-	    
+# Now defunct.
+
 # Change system fonts to Monospace 12
 
 # Be sure to disable Wayland, and default to X instead!
 
 # Change default alert sound from Drip/Default to Glass in gnome.
 
-# Misc things: 
+# Misc things:
 	in RetroArch, update Assets
 	Install C-Lion
 	Install Pycharm

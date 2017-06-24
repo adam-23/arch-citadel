@@ -1,118 +1,84 @@
+# Wifi and volume
 exec --no-startup-id nm-applet
 exec --no-startup-id pa-applet
 exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id val $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec --no-startup-id export SSH_AUTH_SOCK
+
+# Background
 exec --no-startup-id feh --bg-scale ~/.config/i3/background.jpg
+
+# Compositing and Transparency
 exec --no-startup-id compton -b
 
 # Fibonacci Layout, open new windows alternatingly
 for_window [class=".*"] split toggle
-default_orientation vertical #start in opposite orientation from your monitor
+default_orientation vertical # start in opposite orientation from your monitor
 
+# Border colors:
+client.focused 		#25242d #25242d #C5B358	
+# Focused Window
+client.focused_inactive	#2c2f2e #25242d #666666 
+# Nonfocused Window
 
-# Border colors
-#client.focused	#315858  #315858  #111111
-#client.focused #ffffff #000000 #ffffff #2e9ef4 #285577
-#client.focused_inactive #ffffff #5f676a #ffffff #484e50
-#5f676a
-#client.unfocused #ffcc00 #6791e2 #ef3451 #292d2e #e4191rr
-#client.background       #0003ee
-#client.placeholder      #ffffff #0c0c0c #ffffff #000000
-#0c0c0c
-#new_window pixel 1
-
-# colors
-#class 			border  backgr.    text
-client.focused 		#25242d #25242d #C5B358	#Focused Window
-client.focused_inactive	#2c2f2e #25242d #666666 #Nonfocused Window
-
-
+# [i3-gaps]
 gaps inner 15
 gaps outer 5
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
 
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# Use the Super key
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# System Font
 font pango:DejaVu Sans Mono 9
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
+# Terminal
 bindsym $mod+Return exec xfce4-terminal
 
-# quit window (TBD)
-# bindsym $mod
+# Chromium/Internet
+assign [class="chromium"] 2; workspace 2
+bindsym $mod+Shift+i exec --no-startup-id chromium; workspace 2
 
-assign [class="chromium"] 2
-# open browser
-
-bindsym $mod+Shift+i exec --no-startup-id chromium
-bindsym $mod+Shift+n exec --no-startup-id gnome-terminal
+# Atom/Text Editor
 bindsym $mod+Shift+a exec --no-startup-id atom
-bindsym Print exec uxterm
-bindsym XF86PowerOff exec uxterm
-# brightness
+
+# Print Key
+#bindsym Print exec uxterm
+bindsym Print exec ./tiny_power/cpp_tiny_power/tiny-power
+
+
+# Power Off
+bindsym XF86PowerOff exec ./tiny_power/cpp_tiny_power/tiny-power
+
+# Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 25
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 25
 
-# TODO kbd brightness
-bindsym XF86KbdBrightnessUp exec --no-startup-id kbdbacklight -inc 25
-bindsym XF86KbdBrightnessDown exec --no-startup-id kbdbacklight -dec 25
-
-# kill focused window
+# Kill Focused Window
 bindsym $mod+Shift+q split toggle kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Open Program:
+# bindsym $mod+d exec dmenu_run # Use for terminal commands
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop # Use for terminal and Desktop entries
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# Change Focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
+# Move Focused Window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# Horizontal Split
 bindsym $mod+h split h
 
-# split in vertical orientation
+# Vertical Split
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# Fullscreen Toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -120,17 +86,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Toggle Floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -156,16 +113,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3 and X?' -b 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+e exec i3 exit
-bindsym $mod+Shift+h exec --no-startup-id i3lock -i blacktriangles.png -u
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -191,9 +141,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Start i3bar to display a workspace bar (plus the system info)
 bar {
 	position top
-        status_command i3status
+#        status_command i3status
 }
+exec --no-startup-id polybar top

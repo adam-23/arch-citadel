@@ -93,13 +93,12 @@ echo "$NEWUSER password assigned."
 
 ######### Hostname Setup
 echo
-echo -n "Enter your new desired computer hostname (default: ellas) > "
+echo -n "Enter your new desired computer hostname (default: iberia) > "
 read NEWHOSTNAME
 echo "Hostname to add: $NEWHOSTNAME"
 hostnamectl set-hostname ${NEWHOSTNAME}
 echo
 # Ask user for the name of the computer as seen on networks.
-# Default is ellas
 
 
 
@@ -145,51 +144,13 @@ echo
 # Updates/upgrades system.
 
 
-
-
-########## GNOME and Battery
+##########
 echo
 echo "-----------------------------------------"
-echo "Installing "GNOME" desktop environment."
 echo
-pacman -S gnome gnome-keyring gnome-software tlp xfce4-terminal gdm
-# Gnome standard packages and TLP battery saver.
-
-
-
-
-######## Configuring GNOME
-echo
-echo "Configuring "GNOME" system environment."
-echo
-# gsettings set org.gnome.desktop.background show-desktop-icons true
-# As of posting my theme on unixporn I've decided to forgo this because the default icons look ugly
-echo "WaylandEnable=false" >> /etc/gdm/custom.conf
-echo "# Above line appended by Athens install script." >> /etc/gdm/custom.conf
-systemctl enable gdm.service
-pacman -Rs evolution
-# Removed evolution because I hate it.
-# This allows use of Xorg to draw desktop icons using nautilus.
-###### Removed this functionality because the default ones look ugly, but I'm keeping the code in just in case.
-###### Can be undone using the Gnome Tweak Tool
-# Allows Gnome to show desk icons, enables GDM Lock Screen.
-
-
-
-
-########## Autoboot to GNOME
-echo
-echo "Configured auto-boot to GNOME Desktop."
-echo
-echo "exec gnome-session" >> /home/${NEWUSER}/.xinitrc
-echo "# Above comment appended by Athens install script." >> /home/${NEWUSER}/.xinitrc
+pacman -S tlp xfce4-terminal
+# Standard packages and TLP battery saver.
 echo "exec startx" >> /home/${NEWUSER}/.bash_profile
-# Might technically be defunct because gdm is being used. Will have to test later.
-# Enables GNOME and X to start at boot.
-
-
-
-
 ########## Enable TLP (Battery)
 echo
 echo "Configuring battery life saver."
@@ -200,16 +161,15 @@ systemctl disable systemd-rfkill.service
 # Enables and configures TLP battery saver.
 
 
-
-
 ######### Programming Tools
 echo
 echo "-----------------------------------------"
 echo "Installing programming tools."
 echo
-pacman -S git base-devel wget gvfs gamin bash-completion tk python3 python2 gparted dosfstools conky atom tilda
-git config --global core.editor nano
-# Makes git's default editor as nano, not emacs.
+pacman -S git base-devel wget gvfs gamin bash-completion
+pacman -S tk python3 python2 gparted dosfstools conky atom
+git config --global core.editor nano gnome-disk-utility
+# Makes git's default editor as nano
 pacman -S openssh tigervnc
 # VNC and SSH programs.
 # Installs basic programming tools.
@@ -226,10 +186,6 @@ pacman -S iw wpa_supplicant dialog
 pacman -S networkmanager network-manager-applet dnsmasq networkmanager-openvpn openvpn
 pacman -S transmission-cli transmission-gtk chromium
 # Installs network tools.
-
-
-
-
 ########### Configuring Network Tools
 echo
 echo "Configuring network tools."
@@ -264,8 +220,6 @@ systemctl enable bluetooth.service
 # Installs bluetooth
 
 
-
-
 ####### Install Atom packages in $NEWUSER home directory
 su $NEWUSER
 apm install minimap highlight-line symbols-tree-view script
@@ -290,7 +244,7 @@ exit
 # Put a copy of the aur script in the user home folder and run it as user.
 
 
-
+# TODO fix this ugly shit
 
 ######### Configure .xprofile to run aesthetics programs at boot.
 touch /home/${NEWUSER}/.xprofile
@@ -318,7 +272,8 @@ echo "# Above comments appended by Athens install script." >> /home/${NEWUSER}/.
 
 ###### i3-ricing
 echo 'Ricing desktop...'
-sudo pacman -S feh
+sudo pacman -S i3 feh lxappearance rofi blueman-applet
+sudo pacman -S xfce4-power-manager screenfetch
 echo
 echo 'Copying config files...'
 cp /../config_files/i3-config.txt /home/${NEWUSER}/.config/i3/config
